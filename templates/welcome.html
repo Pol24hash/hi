@@ -78,29 +78,42 @@
 
         /* Love Letter Box */
         .letter-container {
-            background: rgba(255, 182, 193, 0.9); /* Soft Pink */
-            color: white; /* White text for contrast */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Pink glow */
-            width: 400px;
-            height: 250px;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            z-index: 2;
-        }
+    background: rgba(255, 182, 193, 0.9); /* Soft Pink */
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+    width: 400px;
+    height: 250px; /* Fixed height */
+    text-align: center;
+    position: relative;
+    overflow-y: scroll; /* Allow manual scrolling */
+    overflow-x: hidden; /* No horizontal scrolling */
+    padding-top: 10px; /* Ensure text starts from the top */
+}
 
-        /* Auto-Scrolling Text */
-        .scrolling-text {
-            position: absolute;
-            width: 90%;
-            text-align: center;
-            animation: scrollText 40s linear infinite;
-        }
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.letter-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for Firefox */
+.letter-container {
+    scrollbar-width: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.letter-container {
+    -ms-overflow-style: none;
+}
+
+/* Ensure text is at the top */
+.scrolling-text {
+    position: relative; /* No animation, stays static */
+    width: 90%;
+    text-align: center;
+}
+
 
         @keyframes scrollText {
             0% { transform: translateY(100%); opacity: 0; }
