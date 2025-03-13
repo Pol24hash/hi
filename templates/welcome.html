@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Love Letter</title>
+    <title>Happy Birthday baby!</title>
     <style>
         body {
             font-family: 'Georgia', serif;
@@ -76,76 +76,63 @@
             100% { transform: scale(1); opacity: 0.8; }
         }
 
-        /* Floating Clouds */
-        .cloud {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.6);
-            width: 100px;
-            height: 50px;
-            border-radius: 50px;
-            opacity: 0.7;
-            animation: moveClouds 30s infinite linear;
-        }
-
-        @keyframes moveClouds {
-            0% { transform: translateX(-100vw); }
-            100% { transform: translateX(100vw); }
-        }
-
         /* Love Letter Box */
         .letter-container {
-    background: rgba(255, 182, 193, 0.9); /* Soft Pink */
-    color: white; /* White text for contrast */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Pink glow */
-    width: 400px;
-    height: 250px;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-}
-
+            background: rgba(255, 182, 193, 0.9); /* Soft Pink */
+            color: white; /* White text for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.5); /* Pink glow */
+            width: 400px;
+            height: 250px;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            z-index: 2;
+        }
 
         /* Auto-Scrolling Text */
         .scrolling-text {
             position: absolute;
             width: 90%;
             text-align: center;
-            animation: scrollText 35s linear infinite;
+            animation: scrollText 40s linear infinite;
         }
 
         @keyframes scrollText {
             0% { transform: translateY(100%); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100%); opacity: 0; }
+            5% { opacity: 1; }
+            85% { opacity: 1; }
+            90% { opacity: 0; }
+            92% { transform: translateY(-100%); opacity: 0; }
+            93% { transform: translateY(100%); opacity: 0; }
+            94% { opacity: 1; }
+            100% { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Video Overlay (Blends with bg1.gif) -->
+    <!-- Background Music -->
+    <audio id="bg-music" autoplay loop>
+        <source src="{{ url_for('static', filename='bgm1.mp3') }}" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Click to Play (Fix for Autoplay Restrictions) -->
+    <script>
+        document.addEventListener("click", function() {
+            document.getElementById("bg-music").play();
+        });
+    </script>
+
+    <!-- Video Overlay -->
     <video class="video-bg" autoplay loop muted>
         <source src="{{ url_for('static', filename='background.mp4') }}" type="video/mp4">
     </video>
-
-    <!-- Floating Stars -->
-    <div class="stars">
-        <script>
-            for (let i = 0; i < 20; i++) {
-                let star = document.createElement("div");
-                star.style.top = Math.random() * 100 + "vh";
-                star.style.left = Math.random() * 100 + "vw";
-                star.style.animationDuration = Math.random() * 3 + 2 + "s";
-                document.querySelector(".stars").appendChild(star);
-            }
-        </script>
-    </div>
 
     <!-- Floating Hearts -->
     <script>
@@ -165,37 +152,30 @@
     <!-- Pulsing Heart -->
     <div class="pulsing-heart">💗</div>
 
-    <!-- Floating Clouds -->
-    <div class="clouds">
-        <script>
-            for (let i = 0; i < 5; i++) {
-                let cloud = document.createElement("div");
-                cloud.classList.add("cloud");
-                cloud.style.top = Math.random() * 40 + "vh";
-                cloud.style.animationDuration = Math.random() * 20 + 10 + "s";
-                document.querySelector(".clouds").appendChild(cloud);
-            }
-        </script>
-    </div>
-
     <!-- Love Letter -->
     <div class="letter-container">
         <div class="scrolling-text">
-            <h2>To My Dearest, {{ username }} 💖</h2>
+            <h2>To My Honeybunchsugarplum, {{ username }} 💖</h2>
             <p>
-                Happy Birtday baby, this is the gift that i want to give (sorry busy ang mga sinasbi ko sayo) 
-                
-                Ever since the moment our paths crossed, my heart has danced to the melody of your love.  
-                You are the light that brightens my darkest days, the warmth that fills my soul.  
-                Every second with you is a gift, and I cherish every laugh, every smile, and every moment we share.  
+                Happy Birtday babyyy, this is the gift that i want to give (sorry busy ang mga sinasbi ko sayo hehe) 
+                I'm glad na i'll be part of your birthday this year and i'm so happy to have you my baby, you make
+                my life full of joy, Every second with you is a gift, and I cherish every laugh, every smile, and every moment we share.
+                And when we talked again my heart has danced to the melody of your presence even though we not met personally that time. 
+                I hope that i gave you the love that you always want to feel and its like you are the light that brightens my darkest days, 
+                the warmth that fills my soul. And also this is your birthday i want you to enjoy this day of yours 😚😚
                 <br><br>
                 I never knew love could be this beautiful until you showed me its true meaning.  
-                Your kindness, your laughter, your gentle words—everything about you is a treasure I hold dear.  
+                Your kindness, your laughter, your love and your gentle words everything about you is a treasure I hold always my baby.  
                 <br><br>
                 As long as the stars shine in the night sky, my love for you will never fade.  
                 With all my heart and soul, I love you more than words can express.  
                 <br><br>
-                Forever yours. 💕
+                Iloveeeeyouuusooomuchhh my baby and Happy Birthday again 😚💕
+                <br><br>
+                <br><br>
+                Your cutiepatotie bf:
+                <br><br>
+                chanieeee🥰🥰🥰
             </p>
         </div>
     </div>
