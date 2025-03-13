@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, flash
 
 app = Flask(__name__)
 app.secret_key = "secretkey"
 
-# Admin credentials
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "admin123"
+# User credentials
+VALID_USERNAME = "irish"
+VALID_DATE = "2004-03-17"  # Format: YYYY-MM-DD
 
 @app.route('/')
 def login_page():
@@ -14,13 +14,14 @@ def login_page():
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']
-    password = request.form['password']
+    selected_date = request.form['date']
     
-    if username == ADMIN_USERNAME and password == ADMIN_PASSWORD:
+    if username == VALID_USERNAME and selected_date == VALID_DATE:
         session['user'] = username
         return redirect(url_for('welcome'))
     else:
-        return "<script>alert('Invalid Credentials!'); window.location='/';</script>"
+        flash("Invalid Credentials!", "danger")
+        return redirect(url_for('login_page'))
 
 @app.route('/welcome')
 def welcome():
